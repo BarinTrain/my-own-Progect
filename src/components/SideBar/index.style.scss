@@ -1,0 +1,72 @@
+.sideBar__container {
+    position: sticky;
+    top: 0;
+
+    @media (max-width: 840px) {
+        display: flex;
+    }
+    @media (max-width: 510px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    .warning {
+        display: flex;
+        .warning__text {
+            width: 120px;
+            height: auto;
+            background: rgb(236, 199, 149);
+            border-radius: 15px;
+            text-align: center;
+            margin: 10px 0 0 10px;
+            color: red;
+            font-size: 18px;    
+            @media (max-width: 840px) {
+                width: auto;
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+    }
+    .routes {
+        align-items: center;
+        height: auto;
+        margin: 10px 0 10px 10px;
+        background: rgb(236, 199, 149);
+        display: flex;
+        border-radius: 30px;
+        flex-direction: column;
+        @media (max-width: 840px) {
+            display: flex;
+            flex-direction: row;
+        }
+        .routeButton {
+            margin-top: 20px;
+            width: 100px;
+            height: 35px;
+            background: black;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            outline: none;
+            border-radius: 8px;
+            border: 0;
+            @media (min-width: 840px) {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            @media (max-width: 840px) {
+                margin: 0 10px 0 10px;
+            }  
+        }
+        .userActive {
+            background: rgb(252, 80, 80);
+            box-shadow:0 0 20px rgb(255, 255, 255);
+        }
+        .infoActive {
+            background: rgb(252, 80, 80);
+            box-shadow:0 0 20px rgb(255, 255, 255);
+        }
+        .navigation {
+            margin: 20px auto;
+        }
+    }
+}

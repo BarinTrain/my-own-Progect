@@ -1,0 +1,6 @@
+export const SET_DATA_RECEIVED = 'SET_DATA_RECEIVED';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const USER_SEND = 'USER_SEND';
+export const USER_CHECKING = 'USER_CHECKING';
+export const IS_DATA_CHECKING = 'IS_DATA_CHECKING';
+// export const USER_INFO = 'USER_INFO';

@@ -1,0 +1,24 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 88vh;
+    background: bisque;
+    .login__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        .login__container__button {
+            width: 175px;
+            height: 40px;
+            background: black;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            outline: none;
+            border-radius: 15px;
+            border: 0;
+        } 
+    }   
+}

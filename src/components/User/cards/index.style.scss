@@ -1,0 +1,60 @@
+.cards{
+    display: flex;
+    .cards__block {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .cards__block-user {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 360px;
+            height: 440px;
+            border: 1px solid bisque;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            text-align: center;
+            .infoContent {
+                display: flex;
+                flex-direction: column;
+            }
+            .route {
+                width: 85px;
+                height: 35px;
+                background: black;
+                cursor: pointer;
+                color: rgb(255, 255, 255);
+                outline: none;
+                border-radius: 8px;
+                border: 0;
+            }
+            .images {
+                border-radius: 20px;
+                width: 160px;
+                height: 160px;
+            }
+        }
+        .male {
+            background: linear-gradient(245deg, #5c73f3 0%, burlywood 80%);
+        }
+        .female {
+            background: linear-gradient(245deg, burlywood 0%, #f39fe8 100%);
+        }
+    }
+}
+.load {
+    width: 100vw;
+    text-align: center;
+}
+
+.error {
+    width: 100vw;
+    margin-top: 30%;
+    text-align: center;
+    color: red;
+    font-size: 30px;
+}
