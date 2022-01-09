@@ -2,21 +2,20 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuid } from 'uuid';
 
 import { checkData, sendUser } from "../../../redux/actions/actions";
 import { stateSelector } from "../../../redux/selectors";
 import { Data } from "../../../constants/intrefase";
 import { Button } from "../../common/Button";
 import Loader from "../../Loader";
+import { userInformation } from "../../../constants/paths";
 
-import './index.style.scss'
-
-const uuid = require("react-uuid");
+import './index.style.scss';
 
 const Cards = () => {
     const [fetching, setFetching] = useState(true);
     const dispatch = useDispatch();
-
     const {
         receivedData, 
         isDataFetching, 
@@ -28,25 +27,24 @@ const Cards = () => {
 
     useEffect(() => {
         dispatch(checkData(currentPage + 1))
-    }, [fetching])
+    }, [fetching]);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
         return function () {
             document.removeEventListener('scroll', scrollHandler)
         }
-    }, [])
+    }, []);
 
     const scrollHandler = (event: any) => {
         const pagination = event.target.documentElement.scrollHeight === (event.target.documentElement.scrollTop + window.innerHeight);
         if (pagination) {
             setFetching((prevState: boolean) => !prevState)
-        }
+        };
     }
 
     const mapping = (item: Data) => {
-        const year = item.dob.date;
-        const date = year.slice(0, 10);
+        const year = item.dob.date.slice(0, 10);
         const className = item.gender === 'male' ?
             'cards__block-user male'
             : 'cards__block-user female';
@@ -63,11 +61,11 @@ const Cards = () => {
                         />
                     </div>
                     <div className="infoContent">
-                        <p><FormattedMessage id='Date of birth:' /> {date}</p>
+                        <p><FormattedMessage id='Date of birth:' /> {year}</p>
                         <p><FormattedMessage id='Age:' /> Age: {item.dob.age}</p>
                         <p><FormattedMessage id='Gender:' /> {item.gender}</p>
                     </div>
-                    <Link to='/user_info' className="linka">
+                    <Link to={userInformation} className="linka">
                         <Button
                             onClick={() => send(item)}
                             className="route"
@@ -79,7 +77,7 @@ const Cards = () => {
         )
     }
 
-    const mapedCard = useMemo(() => (receivedData as Data[]).map(mapping), [receivedData]);
+    const mapCard = useMemo(() => (receivedData as Data[]).map(mapping), [receivedData]);
 
     const loader = !isDataFetching ?
         <div className="load">
@@ -89,7 +87,7 @@ const Cards = () => {
             <>
                 <div className="cards" onScroll={event => scrollHandler(event)}>
                     <div className="cards__block">
-                        {mapedCard}
+                        {mapCard}
                     </div>
                 </div>
             </>

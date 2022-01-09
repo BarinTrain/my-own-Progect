@@ -1,26 +1,17 @@
 .mainContent {
     display: flex;
     width: 100%;
-
     @media (max-width: 840px) {
         flex-direction: column;
     }
-    .mainContent__sideBar {
-        width: 15%;
-        display: flex;
-        flex-direction: row;
-        @media (max-width: 840px) {
-            width: auto;
-        }
-        @media (max-width: 840px) {
-            width: auto;
-            display: flex;
-            justify-content: center;
-        }
+    .top {
+        position: fixed;
+        right: 10px;
+        bottom: 200px;
     }
     .mainContent__cards {
         display: flex;
-        width: 85%; 
+        margin: 20px 50px 0 50px; 
         @media (max-width: 840px) {
             width: auto;
         }

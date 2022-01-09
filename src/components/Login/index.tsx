@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 import { Button } from "../common/Button";
+import { user } from "../../constants/paths";
 
-import './index.style.scss'
+import './index.style.scss';
 
 interface Props {
     setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
@@ -13,9 +14,9 @@ interface Props {
 const Login: React.FC<Props> = ({ setIsAuth }) => {
     const history = useNavigate()
     const handleLogin = () => {
-        setIsAuth(true)
-        history('/user')
-    }
+        setIsAuth(true);
+        history(user);
+    };
     
     return (
         <div className="login">

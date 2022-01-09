@@ -1,6 +1,4 @@
 .sideBar__container {
-    position: sticky;
-    top: 0;
 
     @media (max-width: 840px) {
         display: flex;
@@ -17,7 +15,6 @@
             background: rgb(236, 199, 149);
             border-radius: 15px;
             text-align: center;
-            margin: 10px 0 0 10px;
             color: red;
             font-size: 18px;    
             @media (max-width: 840px) {
@@ -30,17 +27,13 @@
     .routes {
         align-items: center;
         height: auto;
-        margin: 10px 0 10px 10px;
-        background: rgb(236, 199, 149);
         display: flex;
-        border-radius: 30px;
-        flex-direction: column;
         @media (max-width: 840px) {
             display: flex;
             flex-direction: row;
         }
         .routeButton {
-            margin-top: 20px;
+            margin-top: 9px;
             width: 100px;
             height: 35px;
             background: black;

@@ -1,4 +1,4 @@
-import { RootState } from "../rootReduser"
+import { RootState } from "../rootReducer"
 
 export const receiveSelector = (state: RootState) => state.receivedData;
 export const sendUser = (state: RootState) => state.sendUser;

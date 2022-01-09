@@ -56,3 +56,19 @@ export interface Data {
         date: string;
     }
 }
+
+export interface InitialData {
+    receivedData: Data[];
+    sendUser: Data[];
+    isDataFetching: boolean;
+    isDataFetchError: boolean;
+    currentPage: number;
+}
+
+export const initialData: InitialData = {
+    receivedData: [],
+    sendUser: [],
+    isDataFetching: false,
+    isDataFetchError: false,
+    currentPage: 0,
+}

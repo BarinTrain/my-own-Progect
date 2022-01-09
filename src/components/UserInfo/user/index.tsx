@@ -1,22 +1,19 @@
 import { useMemo } from "react";
 import { FormattedMessage } from "react-intl";
 import { useSelector } from "react-redux";
+import { v4 as uuid } from 'uuid';
+
 import { Data } from "../../../constants/intrefase";
 import { sendUser } from "../../../redux/selectors";
 
-import './index.style.scss'
-
-const uuid = require("react-uuid");
-
+import './index.style.scss';
 
 const Users = () => {
 
     const userInfo = useSelector(sendUser);
 
     const userDeteils = (item: Data) => {
-        
-        const year = item.dob.date;
-        const date = year.slice(0,10);
+        const year = item.dob.date.slice(0,10);
         const registered = item.registered.date;
         const registeredDate = registered.slice(0,10);
         const className = item.gender === 'male' ?
@@ -35,7 +32,7 @@ const Users = () => {
                         />
                     </div>
                     <div className="user__personal">
-                        <p><FormattedMessage id='Date of birth:'/> {date}</p>
+                        <p><FormattedMessage id='Date of birth:'/> {year}</p>
                         <p><FormattedMessage id='Age:'/> {item.dob.age}</p>
                         <p><FormattedMessage id='Gender:'/> {item.gender}</p>
                         <p><FormattedMessage id='City:'/> {item.location.city} in {item.location.country}</p>
@@ -50,12 +47,13 @@ const Users = () => {
             </div>
         )
     }
-    const mapedUser = useMemo(() => (userInfo as Data[]).map(userDeteils), [userInfo])
+    
+    const mapUser = useMemo(() => (userInfo as Data[]).map(userDeteils), [userInfo])
 
     return (
         <div className="user">
             <div className="user__information">
-                {mapedUser}
+                {mapUser}
             </div>
         </div>
     )

@@ -6,19 +6,11 @@
         flex-direction: column;
         
     }
-    .infoBlock__tab {
-        width: 15%;
-        display: flex;
-        flex-direction: row;
-        @media (max-width: 840px) {
-            width: auto;
-            display: flex;
-            justify-content: center;
-        }
-    }
+
     .infoBlock__user {
         display: flex;
-        width: 85%;
+        justify-content: center;
+        width: 100%;
         @media (max-width: 840px) {
             width: auto;
             display: flex;
