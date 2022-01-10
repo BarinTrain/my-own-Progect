@@ -10,7 +10,7 @@ import User from './components/User';
 import UserInfo from './components/UserInfo';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import ProtectedRoute from './route/privateRoutes';
-import { login } from './constants/paths';
+import { login, user, userInformation, defaultPath } from './constants/paths';
 
 import './App.scss';
 
@@ -31,10 +31,10 @@ const App: React.FC = () => {
       >
         <Header setLocale={setLocaleLanguage} localeLanguage={localeLanguage}/>
         <Routes >
-          <Route path="/" element={<Navigate replace to={login} />} />
-          <Route path='/login' element={<Login setIsAuth={setIsAuth}/>} />
-          <Route path='/user' element={<ProtectedRoute isAuth={isAuth} element={<User />} />} />
-          <Route path='/user_info' element={<ProtectedRoute isAuth={isAuth} element={<UserInfo />} />} />
+          <Route path={defaultPath} element={<Navigate replace to={login} />} />
+          <Route path={login} element={<Login setIsAuth={setIsAuth}/>} />
+          <Route path={user} element={<ProtectedRoute isAuth={isAuth} element={<User />} />} />
+          <Route path={userInformation} element={<ProtectedRoute isAuth={isAuth} element={<UserInfo />} />} />
         </Routes>
       </IntlProvider>
     </>

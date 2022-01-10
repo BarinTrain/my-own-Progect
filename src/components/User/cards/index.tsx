@@ -77,7 +77,7 @@ const Cards = () => {
         )
     }
 
-    const mapCard = useMemo(() => (receivedData as Data[]).map(mapping), [receivedData]);
+    const mapedCard = useMemo(() => (receivedData as Data[]).map(mapping), [receivedData]);
 
     const loader = !isDataFetching ?
         <div className="load">
@@ -87,7 +87,7 @@ const Cards = () => {
             <>
                 <div className="cards" onScroll={event => scrollHandler(event)}>
                     <div className="cards__block">
-                        {mapCard}
+                        {mapedCard}
                     </div>
                 </div>
             </>

@@ -16,11 +16,11 @@ interface Props {
 }
 
 const Header = ({ setLocale, localeLanguage }: Props) => {
-    const [isActive, setIsAcive] = useState<string>();
+    const [activePath, setActivePath] = useState<string>();
     const { pathname } = useLocation();
 
     useEffect( () => {
-        setIsAcive(pathname)
+        setActivePath(pathname)
     }, [pathname]);
     
     const itemsMap = (item: string) => {
@@ -32,7 +32,7 @@ const Header = ({ setLocale, localeLanguage }: Props) => {
         )
     };
 
-    const mapItems = useMemo(() => Object.keys(LOCALES).map(itemsMap), [LOCALES]);
+    const mappedItems = useMemo(() => Object.keys(LOCALES).map(itemsMap), [LOCALES]);
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const local: Record<string, string> = {
@@ -57,7 +57,7 @@ const Header = ({ setLocale, localeLanguage }: Props) => {
                     </Link>
                 </div>
                 <div className="header__container options">
-                    <div className={isActive === login ? 
+                    <div className={activePath === login ? 
                         'header__container disable' 
                         : 'header__container active'}>
                         <SideBar />
@@ -70,7 +70,7 @@ const Header = ({ setLocale, localeLanguage }: Props) => {
                                 localeLanguage.name
                                 : 'ENGLISH'}
                         </option>
-                        {mapItems}
+                        {mappedItems}
                     </select>
                 </div>
             </div>
